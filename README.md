@@ -3,12 +3,15 @@ Instructions for building Controller MIDI WiFi with NRF24L01 + atmega328
 useful components:
 <br><br>
 
-crystal 16 MHz
+crystal 16 MHz, 
 ATMEGA328p:
+<br>
 ![alt tag](https://github.com/kashimAstro/MIDIWiFi/blob/master/atmega328p.png)
 NRF24L01:
+<br>
 ![alt tag](https://github.com/kashimAstro/MIDIWiFi/blob/master/NRF24L01.jpg)
 ATMEGA8u2 or usb2Serial:
+<br>
 ![alt tag](https://github.com/kashimAstro/MIDIWiFi/blob/master/usb2serial.jpg)
 
 <br><br><br>
@@ -29,9 +32,10 @@ receives data from the transmitter and converts them into notes.
 
 
 video: <a href="http://www.youtube.com/watch?v=jIHgikgUjrc">http://www.youtube.com/watch?v=jIHgikgUjrc</a>
-[![video](http://img.youtube.com/vi/jIHgikgUjrc/maxresdefault.jpg)](http://www.youtube.com/watch?v=jIHgikgUjrc)
-<br><br>
+<br>
+[![video](https://github.com/kashimAstro/MIDIWiFi/blob/master/video.png)](http://www.youtube.com/watch?v=jIHgikgUjrc)
 
 sample notes:
+<br>
 ![alt tag](https://github.com/kashimAstro/MIDIWiFi/blob/master/notes.gif)
 
