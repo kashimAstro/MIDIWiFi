@@ -33,7 +33,7 @@ receives data from the transmitter and converts them into notes.
 
 video: <a href="http://www.youtube.com/watch?v=jIHgikgUjrc">http://www.youtube.com/watch?v=jIHgikgUjrc</a>
 <br>
-[![video](https://github.com/kashimAstro/MIDIWiFi/blob/master/video.png)](http://www.youtube.com/watch?v=jIHgikgUjrc)
+[![alt tag](https://github.com/kashimAstro/MIDIWiFi/blob/master/video.png)](http://www.youtube.com/watch?v=jIHgikgUjrc)
 
 sample notes:
 <br>
