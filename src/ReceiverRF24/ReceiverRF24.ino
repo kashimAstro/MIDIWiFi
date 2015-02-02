@@ -7,7 +7,9 @@
 #define MIDI_COMMAND_NOTE_ON        0x90
 #define MIDI_CONTROL_CHANGE         0x0E
 
-#define SERIAL_BAUND 0
+
+#define SERIAL_BAUND 1
+
 
 typedef struct {
   uint8_t command;
@@ -24,6 +26,13 @@ uint8_t note[] = {
   0x53,
   0x54,
   0 
+};
+
+boolean bool_MIDI[] ={
+  false,
+  false,
+  false,
+  false,
 };
 
 int msg[1];
@@ -57,41 +66,38 @@ void loop(void){
     }
     else {
       if(SERIAL_BAUND == 0){
-        //int commaIndex = theMessage.indexOf('P');
-        //int secondCommaIndex = theMessage.indexOf('P', commaIndex+1);
-        //theMessage.remove(1);
+
         if(theMessage=="A"){
-          Serial.println("1");
+          Serial.println("ON note");
         }
         if(theMessage=="B"){
-          Serial.println("2");
+          Serial.println("OFF note");
         }
-        if(theMessage=="C"){
-          Serial.println("3");
-        }
+        
         if( theMessage != "A" && theMessage != "B" && theMessage != "C" && theMessage != "" && theMessage != "0"){
           Serial.println("pot");
         }
+        
       } 
       else {
-        if( theMessage != "A" && theMessage != "B" && theMessage != "C" && theMessage != "" && theMessage != "0"){
+        if( theMessage != "A" && theMessage != "B" && theMessage != "" && theMessage != "0"){
           MIDImessage(0, MIDI_CONTROL_CHANGE, map(theMessage.toInt(),0,200,0,127));
         }
-        if(theMessage=="A"){
-          MIDImessage(MIDI_COMMAND_NOTE_ON,  note[0], velocity);
-        }
-        if(theMessage=="B"){
+
+        if(theMessage == "A"){
           MIDImessage(MIDI_COMMAND_NOTE_ON,  note[1], velocity);
         }
-        if(theMessage=="C"){
-          MIDImessage(MIDI_COMMAND_NOTE_ON,  note[2], velocity);
+        else if(theMessage == "B"){
+          MIDImessage(MIDI_COMMAND_NOTE_OFF,  note[1], velocity);
         }
+        
       }
       theMessage= "";
     }
   }
   delay(5);
 }
+
 
 void MIDImessage(int command, int MIDInote, int MIDIvelocity) {
   t_midiMsg xmsg;
@@ -101,6 +107,4 @@ void MIDImessage(int command, int MIDInote, int MIDIvelocity) {
   xmsg.data3   = MIDIvelocity;
   Serial.write((uint8_t *)&xmsg, sizeof(xmsg));
 }
-
-
 
